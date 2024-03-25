@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { cn } from "@/lib/utils";
+import { ToggleProvider } from "@/context/toggle";
 import "./globals.css";
 
 const lexend = Lexend({ subsets: ["latin"] });
@@ -30,7 +31,9 @@ export default function RootLayout({
           "bg-shades-grey-10 container mx-auto px-4 lg:px-20 2xl:px-[162px] flex flex-col min-h-screen text-white gap-y-[50px] lg:gap-y-[30px] 2xl:gap-y-[53px]"
         )}
       >
-        <Navbar />
+        <ToggleProvider>
+          <Navbar />
+        </ToggleProvider>
         {children}
       </body>
     </html>
