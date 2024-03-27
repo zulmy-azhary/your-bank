@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useToggle } from "@/context/toggle";
 import { Sidebar } from "@/components/sidebar";
 import { AnimatePresence } from "framer-motion";
+import { Reveal } from "@/components/utils/reveal";
 
 type NavControlProps = {
   children: React.ReactNode;
@@ -20,9 +21,11 @@ export const NavControl: React.FC<NavControlProps> = (props) => {
 
   return (
     <>
-      <Button className="relative z-50 lg:hidden" onClick={() => setOpen((prev) => !prev)}>
-        <Hamburger isOpen={isOpen} />
-      </Button>
+      <Reveal from="right" wrapperClassName="z-[99999]" className="flex">
+        <Button className="lg:hidden" onClick={() => setOpen((prev) => !prev)}>
+          <Hamburger isOpen={isOpen} />
+        </Button>
+      </Reveal>
       <AnimatePresence>{isOpen ? <Sidebar>{children}</Sidebar> : null}</AnimatePresence>
     </>
   );
