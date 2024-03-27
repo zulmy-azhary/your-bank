@@ -1,3 +1,4 @@
+import { useToggle } from "@/context/toggle";
 import { useAnimation, motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 
@@ -7,31 +8,36 @@ type SidebarProps = {
 
 export const Sidebar: React.FC<SidebarProps> = (props) => {
   const { children } = props;
+  const { isOpen } = useToggle();
 
   const ref = useRef(null);
   const controls = useAnimation();
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
-    controls.start("visible");
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      controls.start("visible");
+    }
 
     return () => {
       document.body.removeAttribute("style");
     };
-  }, []);
+  }, [isOpen]);
 
   return (
-    <motion.aside
+    <motion.div
       ref={ref}
       variants={sidebarVariants}
       initial="hidden"
       animate={controls}
       exit="exit"
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="absolute container mx-auto px-10 pb-12 pt-32 inset-0 bg-shades-grey-10 z-10 flex flex-col gap-y-16 items-center"
+      className="w-full fixed inset-0 bg-shades-grey-10 z-[9999]"
     >
-      {children}
-    </motion.aside>
+      <aside className="container mx-auto px-10 pb-12 pt-32 flex flex-col gap-y-16 items-center">
+        {children}
+      </aside>
+    </motion.div>
   );
 };
 
