@@ -1,11 +1,13 @@
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const buttonVariants = cva("rounded-full text-sm 2xl:text-lg transition-colors", {
+const buttonVariants = cva("rounded-full w-fit text-sm 2xl:text-lg transition-colors", {
   variants: {
     variant: {
       primary: "bg-shades-green-60 text-shades-grey-11 hover:bg-shades-green-60/90",
-      secondary: "bg-shades-grey-11 text-white border border-shades-grey-15 hover:bg-shades-grey-15/90",
+      secondary:
+        "bg-shades-grey-11 text-white border border-shades-grey-15 hover:bg-shades-grey-15/90",
+      accent: "bg-[#22251B] text-shades-green-65 hover:bg-[#22251B]/90",
     },
     size: {
       default: "px-[18px] py-[10px] 2xl:px-[24px] 2xl:py-[14px]",
