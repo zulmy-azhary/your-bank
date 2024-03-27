@@ -1,16 +1,18 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, useAnimation, useInView, type Variant } from "framer-motion";
+import { motion, type MotionProps, useAnimation, useInView, type Variant } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-type RevealProps = React.ComponentProps<"div"> & {
-  children: React.ReactNode;
-  from?: "left" | "right" | "top" | "bottom";
-  delay?: number;
-  slider?: boolean;
-  sliderClassName?: string;
-};
+type RevealProps = React.ComponentProps<"div"> &
+  MotionProps & {
+    children: React.ReactNode;
+    from?: "left" | "right" | "top" | "bottom";
+    delay?: number;
+    slider?: boolean;
+    wrapperClassName?: string;
+    sliderClassName?: string;
+  };
 
 export const Reveal: React.FC<RevealProps> = (props) => {
   const {
@@ -19,6 +21,7 @@ export const Reveal: React.FC<RevealProps> = (props) => {
     delay = 0.25,
     slider = false,
     className,
+    wrapperClassName,
     sliderClassName,
     ...rest
   } = props;
@@ -49,15 +52,16 @@ export const Reveal: React.FC<RevealProps> = (props) => {
       className={cn(
         "relative w-fit",
         isHorizontalDirection ? "overflow-x-hidden" : "overflow-y-hidden",
-        className
+        wrapperClassName
       )}
-      {...rest}
     >
       <motion.div
         variants={revealVariants}
         initial={direction}
         animate={controls}
         transition={{ duration: 0.5, delay }}
+        className={cn(className)}
+        {...rest}
       >
         {children}
       </motion.div>
