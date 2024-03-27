@@ -15,12 +15,12 @@ export const AuthNav: React.FC = () => {
         onClick={onClose}
         className="text-center lg:text-start text-sm 2xl:text-lg px-[18px] py-[10px] 2xl:py-3 2xl:px-6 rounded-full transition-colors w-full hover:text-shades-green-60"
       >
-        <Reveal delay={0.45} className="w-full">
+        <Reveal delay={0.45} wrapperClassName="w-full">
           Sign Up
         </Reveal>
       </Link>
       <Link href="/login" onClick={onClose} className="w-full lg:w-fit mx-auto">
-        <Reveal delay={0.55} className="w-full">
+        <Reveal delay={0.55} wrapperClassName="w-full">
           <Button className="w-full">Login</Button>
         </Reveal>
       </Link>
