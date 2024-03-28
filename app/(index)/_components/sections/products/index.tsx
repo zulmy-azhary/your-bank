@@ -5,7 +5,7 @@ import { ProductsTabs } from "./products-tabs";
 
 const ProductsTitle: React.FC = () => {
   return (
-    <div className="flex flex-col items-center md:flex-row md:justify-between">
+    <div className="flex flex-col items-center gap-y-5 md:flex-row md:justify-between">
       <div className="space-y-2.5 text-center md:text-start md:basis-7/12">
         <h2 className="text-[28px] lg:text-[38px] 2xl:text-5xl font-medium">
           Our <span className="text-shades-green-60">Products</span>
