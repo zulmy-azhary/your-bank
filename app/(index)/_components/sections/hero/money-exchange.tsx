@@ -14,7 +14,10 @@ export const MoneyExchangeInfos: React.FC<MoneyExchangeInfosProps> = (props) => 
   return (
     <>
       <div
-        className={cn("space-y-[5px] md:space-y-[6.89px] 2xl:space-y-[8.67px] p-[10px] md:p-[13.77px] 2xl:p-[17.34px] border-b border-shades-grey-15", className)}
+        className={cn(
+          "space-y-[5px] md:space-y-[6.89px] 2xl:space-y-[8.67px] p-2.5 md:p-[13.77px] 2xl:p-[17.34px] border-b border-shades-grey-15",
+          className
+        )}
         {...rest}
       >
         <div className="flex items-center gap-x-[5px]">
@@ -26,12 +29,19 @@ export const MoneyExchangeInfos: React.FC<MoneyExchangeInfosProps> = (props) => 
             className="size-5 md:size-7 2xl:size-9"
             alt={description}
           />
-          <span className="text-[9.23px] md:text-[12.4px] 2xl:text-[15.61px] tracking-wide">{currency}</span>
+          <span className="text-[9.23px] md:text-[12.4px] 2xl:text-[15.61px] tracking-wide">
+            {currency}
+          </span>
         </div>
-        <p className="text-[8.2px] md:text-[11.02px] 2xl:text-[13.87px] text-white/90 font-extralight">{description}</p>
+        <p className="text-[8.2px] md:text-[11.02px] 2xl:text-[13.87px] text-white/90 font-extralight">
+          {description}
+        </p>
       </div>
       <p
-        className={cn("text-[10px] md:text-[13.77px] 2xl:text-[17.34px] flex items-center self-center p-[10px] h-full", priceClassName)}
+        className={cn(
+          "text-[10px] md:text-[13.77px] 2xl:text-[17.34px] flex items-center self-center p-2.5 md:p-[13.77px] 2xl:p-[17.34px] h-full",
+          priceClassName
+        )}
       >
         {price}
       </p>
@@ -57,4 +67,4 @@ export const MoneyExchange: React.FC = () => {
       </div>
     </div>
   );
-}
+};
