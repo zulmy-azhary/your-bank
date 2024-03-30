@@ -1,4 +1,7 @@
-import { Section } from "@/components/ui/section"
+import { Section } from "@/components/ui/section";
+import { FeaturesCard } from "./features-card";
+import { FeaturesTabs } from "./features-tabs";
+import { features } from "./data";
 
 const FeaturesTitle: React.FC = () => {
   return (
@@ -13,12 +16,19 @@ const FeaturesTitle: React.FC = () => {
       </p>
     </div>
   );
-}
+};
 
 const FeaturesContent: React.FC = () => {
   return (
-    <div className="flex flex-col gap-y-10 2xl:gap-y-[60px]">
-      Features Content
+    <div className="flex flex-col lg:flex-row gap-5 2xl:gap-[30px]">
+      <div className="basis-1/4 overflow-x-hidden">
+        <FeaturesTabs />
+      </div>
+      <div className="basis-3/4 grid md:grid-cols-2 md:grid-rows-2 gap-5 2xl:gap-[30px]">
+        {features.map(({ title, description }) => (
+          <FeaturesCard key={title} title={title} description={description} />
+        ))}
+      </div>
     </div>
   );
 };
@@ -29,5 +39,5 @@ export const Features: React.FC = () => {
       <FeaturesTitle />
       <FeaturesContent />
     </Section>
-  )
-}
+  );
+};
