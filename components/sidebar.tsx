@@ -34,7 +34,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="w-full fixed inset-0 bg-shades-grey-10 z-[9999]"
     >
-      <aside className="container mx-auto px-10 pb-12 pt-32 flex flex-col gap-y-16 items-center">
+      <aside className="h-full container mx-auto px-10 pb-12 pt-32 flex flex-col justify-evenly items-center">
         {children}
       </aside>
     </motion.div>
