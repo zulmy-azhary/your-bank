@@ -5,3 +5,17 @@
 img {
   user-select: none;
 }
+
+@layer utilities {
+  :is(:root, .modified-scrollbar)::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  :is(:root, .modified-scrollbar)::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    border-radius: 0.75rem;
+    background-clip: padding-box;
+    background-color: #333;
+  }
+}
