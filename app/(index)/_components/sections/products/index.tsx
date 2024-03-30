@@ -1,7 +1,8 @@
 import { Section } from "@/components/ui/section";
 import { ProductsItem } from "./products-item";
-import { HiArchiveBoxArrowDown, HiBanknotes, HiBriefcase } from "react-icons/hi2";
 import { ProductsTabs } from "./products-tabs";
+import { products } from "./data";
+import { Fragment } from "react";
 
 const ProductsTitle: React.FC = () => {
   return (
@@ -25,27 +26,21 @@ const ProductsTitle: React.FC = () => {
 const ProductsContent: React.FC = () => {
   return (
     <div className="flex flex-col lg:flex-row gap-y-[30px] lg:gap-x-4 xl:gap-x-10">
-      <ProductsItem
-        icon={HiBriefcase}
-        title="Checking Accounts"
-        description="Enjoy easy and convenient access to your funds with our range of checking account options. Benefit from features such as online and mobile banking, debit cards, and free ATM access."
-      />
-      <div>
-        <span className="relative block w-full h-px lg:w-px lg:h-full bg-shades-grey-15" />
-      </div>
-      <ProductsItem
-        icon={HiArchiveBoxArrowDown}
-        title="Saving Accounts"
-        description="Build your savings with our competitive interest rates and flexible savings account options. Whether you're saving for a specific goal or want to grow your wealth over time, we have the right account for you."
-      />
-      <div>
-        <span className="relative block w-full h-px lg:w-px lg:h-full bg-shades-grey-15" />
-      </div>
-      <ProductsItem
-        icon={HiBanknotes}
-        title="Loans and Mortgages"
-        description="Realize your dreams with our flexible loan and mortgage options. From personal loans to home mortgages, our experienced loan officers are here to guide you through the application process and help you secure the funds you need."
-      />
+      {products.map((product) => {
+        const { icon, title, description } = product;
+        const isLastElement = product === products[products.length - 1];
+
+        return (
+          <Fragment key={title}>
+            <ProductsItem icon={icon} title={title} description={description} />
+            {isLastElement ? null : (
+              <div>
+                <span className="relative block w-full h-px lg:w-px lg:h-full bg-shades-grey-15" />
+              </div>
+            )}
+          </Fragment>
+        );
+      })}
     </div>
   );
 };
