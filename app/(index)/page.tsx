@@ -3,6 +3,7 @@ import { Hero } from "./_components/hero";
 import { Products } from "./_components/products";
 import { UseCases } from "./_components/use-cases";
 import { Features } from "./_components/features";
+import { FAQS } from "./_components/faqs";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Products />
       <UseCases />
       <Features />
+      <FAQS />
     </main>
   );
 }
