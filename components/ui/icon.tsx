@@ -25,7 +25,7 @@ export const Icon: React.FC<IconProps> = (props) => {
   return (
     <div
       className={cn(
-        "w-fit p-2 2xl:p-3 rounded-full bg-gradient-to-t from-transparent to-shades-green-60/5",
+        "w-fit h-fit p-2 2xl:p-3 rounded-full bg-gradient-to-t from-transparent to-shades-green-60/5",
         className
       )}
       {...rest}
