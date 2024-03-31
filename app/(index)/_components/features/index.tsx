@@ -35,7 +35,7 @@ const FeaturesContent: React.FC = () => {
 
 export const Features: React.FC = () => {
   return (
-    <Section className="flex flex-col gap-y-[60px] lg:gap-y-20">
+    <Section className="flex flex-col gap-y-[50px] md:gap-y-[60px] lg:gap-y-20">
       <FeaturesTitle />
       <FeaturesContent />
     </Section>
