@@ -1,4 +1,8 @@
+import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
+import { HiMiniChevronDown } from "react-icons/hi2";
+import { faqs } from "./data";
+import { FaqCard } from "./faq-card";
 
 const FaqsTitle: React.FC = () => {
   return (
@@ -14,7 +18,18 @@ const FaqsTitle: React.FC = () => {
 };
 
 const FaqsContent: React.FC = () => {
-  return <div className="flex flex-col lg:flex-row gap-5 2xl:gap-[30px]">FAQS Content</div>;
+  return (
+    <div className="flex flex-col items-center relative after:absolute after:inset-x-0 after:h-1/3 after:bottom-0 after:bg-gradient-to-t after:from-shades-grey-10 after:from-25% md:after:from-50% after:to-transparent">
+      <div className="w-full grid md:grid-cols-2 md:grid-rows-2 gap-5 lg:gap-[30px]">
+        {faqs.map(({ question, answer }) => (
+          <FaqCard key={question} question={question} answer={answer} />
+        ))}
+      </div>
+      <Button variant="secondary" className="flex items-center gap-x-1 z-10">
+        Load All FAQ&apos;s <HiMiniChevronDown className="size-6" />
+      </Button>
+    </div>
+  );
 };
 
 export const FAQS: React.FC = () => {
