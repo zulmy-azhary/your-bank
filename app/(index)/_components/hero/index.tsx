@@ -7,6 +7,7 @@ import { Transaction } from "./transaction";
 import { MoneyExchange } from "./money-exchange";
 import { MonthlyIncome } from "./monthly-income";
 import { SupportedCurrency } from "./supported-currency";
+import { cn } from "@/lib/utils";
 
 const HeroContent: React.FC = () => {
   return (
@@ -37,7 +38,14 @@ const HeroImage: React.FC = () => {
   return (
     <div className="flex flex-col items-center relative">
       <div className="space-y-3">
-        <Card className="min-w-[305.45px] md:min-w-[410.19px] 2xl:min-w-[515.02px]">
+        <Card
+          className={cn(
+            "min-w-[305.45px] md:min-w-[410.19px] 2xl:min-w-[515.02px]",
+            "relative bg-clip-padding border border-transparent",
+            "before:absolute before:inset-0 before:-z-[1] before:rounded-[inherit] before:bg-gradient-to-tr before:from-shades-green-60/20 before:from-0% before:via-transparent before:via-10% before:to-100% before:to-transparent before:-m-px",
+            "after:absolute after:inset-0 after:-z-[2] after:rounded-[inherit] after:bg-shades-grey-15 after:bg-gradient-to-tr after:from-transparent after:from-0% after:via-transparent after:via-90% after:to-100% after:to-shades-green-60/20 after:-m-px"
+          )}
+        >
           <Image
             src="/assets/abstract-1.svg"
             alt="Abstract 1 Image"
