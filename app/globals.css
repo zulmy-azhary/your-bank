@@ -6,6 +6,10 @@ img {
   user-select: none;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  line-height: 1.5 !important;
+}
+
 @layer utilities {
   :is(:root, .modified-scrollbar)::-webkit-scrollbar {
     width: 12px;
