@@ -3,9 +3,9 @@ import { Section } from "@/components/ui/section";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-const CallToActionTitle: React.FC = () => {
+const CallToActionContent: React.FC = () => {
   return (
-    <div className="space-y-3.5 text-center xl:text-start">
+    <div className="space-y-3.5 text-center xl:text-start z-10">
       <h2 className="text-2xl md:text-[26px] lg:text-[40px] lg:leading-normal">
         Start your financial journey with{" "}
         <span className="text-shades-green-60">YourBank today!</span>
@@ -32,12 +32,12 @@ export const CallToAction: React.FC = () => {
         width={32}
         height={32}
         sizes="auto"
-        className="absolute top-0 left-0 w-36 md:w-44 lg:w-48 2xl:w-64 -z-0"
+        className="absolute top-0 left-0 w-36 md:w-44 lg:w-48 2xl:w-64"
         src="/assets/abstract-3.svg"
         alt="Abstract Image 3"
         priority
       />
-      <CallToActionTitle />
+      <CallToActionContent />
       <Button size="lg" className="shrink-0">
         Open Account
       </Button>
