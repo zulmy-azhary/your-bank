@@ -1,3 +1,4 @@
+import { FAQS } from "@/components/sections/faqs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,5 +6,10 @@ export const metadata: Metadata = {
 };
 
 export default function SecurityPage() {
-  return <div>SecurityPage</div>;
+  return (
+    <>
+      SecurityPage
+      <FAQS />
+    </>
+  );
 }
