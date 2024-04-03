@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ToggleProvider } from "@/context/toggle";
 import "./globals.css";
 import Image from "next/image";
+import { Footer } from "@/components/sections/footer";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body
         className={cn(
           lexend.className,
-          "bg-shades-grey-10 mx-auto mt-40 lg:mt-0 overflow-x-hidden flex flex-col items-center min-h-screen text-white gap-y-[50px] lg:gap-y-[30px] 2xl:gap-y-[53px]"
+          "bg-shades-grey-10 mx-auto mt-40 lg:mt-0 overflow-x-hidden flex flex-col justify-between items-center min-h-screen text-white gap-y-[50px] lg:gap-y-[30px] 2xl:gap-y-[53px]"
         )}
       >
         <Image
@@ -46,7 +47,10 @@ export default function RootLayout({
             <Navbar />
           </div>
         </ToggleProvider>
-        {children}
+        <main className="w-full overflow-x-hidden flex flex-col px-4 pb-8 lg:px-20 2xl:px-[162px] xl:container lg:py-10 gap-y-20 lg:gap-y-28 2xl:gap-y-32">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
