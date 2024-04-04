@@ -19,7 +19,7 @@ const FaqsTitle: React.FC = () => {
 
 const FaqsContent: React.FC = () => {
   return (
-    <div className="flex flex-col items-center relative after:absolute after:inset-x-0 after:h-1/3 after:bottom-0 after:bg-gradient-to-t after:from-shades-grey-10 after:from-25% md:after:from-50% after:to-transparent">
+    <div className="flex flex-col items-center relative after:absolute after:inset-x-0 after:h-1/3 after:bottom-0 after:bg-gradient-to-t after:from-shades-grey-10 after:from-25% md:after:from-50% after:to-transparent after:pointer-events-none">
       <div className="w-full grid md:grid-cols-2 md:grid-rows-2 gap-5 lg:gap-[30px]">
         {faqs.map(({ question, answer }) => (
           <FaqCard key={question} question={question} answer={answer} />
