@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const buttonVariants = cva("rounded-full w-fit text-sm 2xl:text-lg transition-colors", {
+const buttonVariants = cva("rounded-full w-fit text-sm 2xl:text-lg transition-colors disabled:opacity-30", {
   variants: {
     variant: {
       primary: "bg-shades-green-60 text-shades-grey-11 hover:bg-shades-green-60/90",
