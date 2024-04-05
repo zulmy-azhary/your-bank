@@ -1,5 +1,6 @@
 import { Section } from "@/components/ui/section";
 import { TestimonialsTabs } from "./testimonials-tabs";
+import { TestimonialsCarousel } from "./testimonials-carousel";
 
 const TestimonialsTitle: React.FC = () => {
   return (
@@ -21,15 +22,11 @@ const TestimonialsTitle: React.FC = () => {
   );
 };
 
-const TestimonialsContent: React.FC = () => {
-  return <div className="">Testimonials Content</div>;
-};
-
 export const Testimonials: React.FC = () => {
   return (
     <Section className="flex flex-col gap-y-[40px] lg:gap-y-20 2xl:gap-y-[100px]">
       <TestimonialsTitle />
-      <TestimonialsContent />
+      <TestimonialsCarousel />
     </Section>
   );
 };
