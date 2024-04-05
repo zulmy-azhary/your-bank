@@ -40,6 +40,9 @@ const config: Config = {
           },
         },
       },
+      backgroundImage: {
+        "gradient-150": "linear-gradient(150deg, var(--tw-gradient-stops))",
+      },
     },
     screens: {
       sm: "375px",
