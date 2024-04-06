@@ -1,25 +1,6 @@
-const FooterNavigation: React.FC = () => {
-  return (
-    <div className="space-y-6">
-      <div className="">Logo</div>
-      <div className="">Navigation</div>
-    </div>
-  );
-};
-
-const FooterContacts: React.FC = () => {
-  return (
-    <div className="flex justify-center items-center gap-5 flex-wrap">
-      <div className="grow text-center">hello@skillbirdge.com</div>
-      <div className="grow text-center">+91 91813 23 2309</div>
-      <div className="grow text-center">Somewhere in the World</div>
-    </div>
-  );
-};
-
-const FooterCopyright: React.FC = () => {
-  return <div className="flex justify-between items-center">Copyright</div>;
-};
+import { FooterNavigation } from "./footer-navigation";
+import { FooterContacts } from "./footer-contacts";
+import { FooterCopyright } from "./footer-copyright";
 
 export const Footer: React.FC = () => {
   return (
