@@ -4,6 +4,7 @@ import { useToggle } from "@/context/toggle";
 import { cn } from "@/lib/utils";
 import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
+import { routes as navRoutes } from "@/lib/data";
 
 const isActive = (pathname: string, id: string | string[], path?: string) => {
   return path ? pathname === `/${path}/${id}` || pathname.includes(path) : pathname === "/";
@@ -17,29 +18,10 @@ export const MainNav: React.FC<MainNavProps> = (props) => {
 
   const pathname = usePathname();
   const params = useParams();
-
-  const routes = [
-    {
-      href: "/",
-      label: "Home",
-      isActive: isActive(pathname, params.id),
-    },
-    {
-      href: "/careers",
-      label: "Careers",
-      isActive: isActive(pathname, params.id, "careers"),
-    },
-    {
-      href: "/about",
-      label: "About",
-      isActive: isActive(pathname, params.id, "about"),
-    },
-    {
-      href: "/security",
-      label: "Security",
-      isActive: isActive(pathname, params.id, "security"),
-    },
-  ];
+  const routes = navRoutes.map((route) => ({
+    ...route,
+    isActive: isActive(pathname, params.id, route.href !== "/" ? route.href : undefined),
+  }));
 
   return (
     <nav
