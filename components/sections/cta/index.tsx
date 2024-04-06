@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const CallToActionContent: React.FC = () => {
   return (
-    <div className="space-y-3.5 text-center xl:text-start">
+    <div className="space-y-3.5 text-center xl:text-start z-0">
       <h2 className="text-2xl md:text-[26px] lg:text-[40px] lg:leading-normal">
         Start your financial journey with{" "}
         <span className="text-shades-green-60">YourBank today!</span>
