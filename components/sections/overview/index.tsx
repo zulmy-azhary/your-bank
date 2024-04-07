@@ -29,7 +29,6 @@ const OverviewImage: React.FC = () => {
         width={52}
         height={52}
         sizes="auto"
-        objectFit="contain"
         priority
       />
     </div>
