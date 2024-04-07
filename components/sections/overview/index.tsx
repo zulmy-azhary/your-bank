@@ -25,10 +25,11 @@ const OverviewImage: React.FC = () => {
       <Image
         src="/assets/overview-careers.png"
         alt="Careers Billboard"
-        className="w-full rounded-2xl"
+        className="w-full rounded-2xl object-contain"
         width={52}
         height={52}
         sizes="auto"
+        objectFit="contain"
         priority
       />
     </div>
