@@ -1,5 +1,6 @@
 import { CallToAction } from "@/components/sections/cta";
 import { FAQS } from "@/components/sections/faqs";
+import { Overview } from "@/components/sections/overview";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 export default function CareersPage() {
   return (
     <>
-      Careers Page
+      <Overview />
       <FAQS />
       <CallToAction />
     </>
