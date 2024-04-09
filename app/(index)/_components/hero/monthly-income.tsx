@@ -11,7 +11,7 @@ export const MonthlyIncome: React.FC<MonthlyIncomeProps> = (props) => {
   return (
     <div
       className={cn(
-        "absolute top-0 left-0 -translate-y-6 md:-translate-y-9 -translate-x-1/4 md:-translate-x-14 2xl:-translate-y-11 flex items-center gap-x-[5px] md:gap-x-[6.89px] bg-[#22251B] px-[10px] py-2 md:px-[13.77px] md:py-[11.02px] 2xl:px-[17px] 2xl:py-[14px] rounded-md md:rounded-lg 2xl:rounded-[10.4px]",
+        "absolute top-0 left-0 -translate-y-6 md:-translate-y-9 -translate-x-1/4 md:-translate-x-14 2xl:-translate-y-10 flex items-center gap-x-[5px] md:gap-x-[6.89px] bg-[#22251B] px-[10px] py-2 md:px-[13.77px] md:py-[11.02px] 2xl:px-[17px] 2xl:py-[14px] rounded-md md:rounded-lg 2xl:rounded-[10.4px]",
         className
       )}
       {...rest}
