@@ -1,30 +1,44 @@
 import { Section } from "@/components/ui/section";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-const OverviewContent: React.FC = () => {
+type OverviewProps = React.ComponentProps<"div"> & {
+  imageUrl: string;
+  subHeader?: string;
+  contentHeader: React.ReactNode;
+  description: string;
+};
+
+const OverviewContent: React.FC<Omit<OverviewProps, "imageUrl">> = (props) => {
+  const { subHeader, contentHeader, description, className, ...rest } = props;
+
   return (
-    <div className="lg:row-start-1 lg:col-start-1 lg:col-end-8 h-fit flex flex-col bg-shades-grey-10 p-6 lg:p-[60px] 2xl:p-20 gap-y-3.5 lg:gap-y-5 2xl:gap-y-[23px] rounded-[20px] lg:rounded-se-none lg:rounded-ee-[60px] 2xl:rounded-ee-[80px] text-center lg:text-start -mt-10 lg:mt-0 z-10">
-      {/* <h5>Welcome to YourBank</h5> */}
-      <h1 className="font-medium text-[28px] lg:text-3xl xl:text-5xl 2xl:text-[58px] !leading-[1.3]">
-        Welcome to <span className="text-shades-green-60">YourBank</span> Careers!
-      </h1>
+    <div
+      className={cn(
+        "lg:row-start-1 lg:col-start-1 lg:col-end-8 h-fit flex flex-col bg-shades-grey-10 p-6 lg:p-[60px] 2xl:p-20 gap-y-3.5 lg:gap-y-5 2xl:gap-y-[23px] rounded-[20px] lg:rounded-se-none lg:rounded-ee-[60px] 2xl:rounded-ee-[80px] text-center lg:text-start -mt-10 lg:mt-0 z-10",
+        className
+      )}
+      {...rest}
+    >
+      <div>
+        {subHeader ? <h5 className="text-sm lg:text-lg 2xl:text-xl">{subHeader}</h5> : null}
+        {contentHeader}
+      </div>
       <p className="text-sm lg:text-base 2xl:text-lg text-shades-grey-70 font-light">
-        Join our team and embark on a rewarding journey in the banking industry. At YourBank, we are
-        committed to fostering a culture of excellence and providing opportunities for professional
-        growth. With a focus on innovation, customer service, and integrity, we strive to make a
-        positive impact in the lives of our customers and communities. Join us today and be a part
-        of our mission to shape the future of banking.
+        {description}
       </p>
     </div>
   );
 };
 
-const OverviewImage: React.FC = () => {
+const OverviewImage: React.FC<Pick<OverviewProps, "imageUrl">> = (props) => {
+  const { imageUrl } = props;
+
   return (
-    <div className="order-first lg:row-start-1 lg:col-start-5 xl:col-start-6 lg:col-span-full z-10">
+    <div className="order-first lg:row-start-1 lg:col-start-5 xl:col-start-6 2xl:col-start-5 lg:col-span-full z-10">
       <Image
-        src="/assets/overview-careers.png"
-        alt="Careers Billboard"
+        src={imageUrl}
+        alt="Billboard Image"
         className="w-full rounded-2xl object-contain"
         width={52}
         height={52}
@@ -35,7 +49,9 @@ const OverviewImage: React.FC = () => {
   );
 };
 
-export const Overview: React.FC = () => {
+export const Overview: React.FC<OverviewProps> = (props) => {
+  const { imageUrl, ...rest } = props;
+
   return (
     <Section className="relative basis-1/2 bg-shades-grey-11 rounded-[20px] p-3.5 lg:p-10 2xl:p-[50px] grid lg:grid-rows-1 lg:grid-cols-12">
       <Image
@@ -47,8 +63,8 @@ export const Overview: React.FC = () => {
         alt="Abstract Image 4"
         priority
       />
-      <OverviewContent />
-      <OverviewImage />
+      <OverviewContent {...rest} />
+      <OverviewImage imageUrl={imageUrl} />
     </Section>
   );
 };
