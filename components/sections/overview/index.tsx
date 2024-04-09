@@ -1,9 +1,10 @@
 import { Section } from "@/components/ui/section";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import fourthAbstract from "@/public/assets/abstract-4.svg";
 
 type OverviewProps = React.ComponentProps<"div"> & {
-  imageUrl: string;
+  imageUrl: StaticImageData;
   subHeader?: string;
   contentHeader: React.ReactNode;
   description: string;
@@ -40,9 +41,7 @@ const OverviewImage: React.FC<Pick<OverviewProps, "imageUrl">> = (props) => {
         src={imageUrl}
         alt="Billboard Image"
         className="w-full rounded-2xl object-contain"
-        width={52}
-        height={52}
-        sizes="auto"
+        placeholder="blur"
         priority
       />
     </div>
@@ -55,12 +54,10 @@ export const Overview: React.FC<OverviewProps> = (props) => {
   return (
     <Section className="relative basis-1/2 bg-shades-grey-11 rounded-[20px] p-3.5 lg:p-10 2xl:p-[50px] grid lg:grid-rows-1 lg:grid-cols-12">
       <Image
-        width={32}
-        height={32}
-        sizes="auto"
         className="absolute top-0 right-0 w-48 md:w-56 lg:w-80 2xl:w-[450px] -z-0 select-none"
-        src="/assets/abstract-4.svg"
+        src={fourthAbstract}
         alt="Abstract Image 4"
+        quality={32}
         priority
       />
       <OverviewContent {...rest} />

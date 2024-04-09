@@ -1,9 +1,10 @@
 import { Overview as OverviewSection } from "@/components/sections/overview";
+import aboutBillboard from "@/public/assets/about-billboard.png";
 
 export const Overview: React.FC = () => {
   return (
     <OverviewSection
-      imageUrl="/assets/about-billboard.png"
+      imageUrl={aboutBillboard}
       subHeader="Welcome to YourBank"
       contentHeader={
         <h1 className="font-medium text-[28px] lg:text-3xl xl:text-5xl 2xl:text-[58px] !leading-[1.3]">
