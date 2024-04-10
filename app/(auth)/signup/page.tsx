@@ -1,3 +1,4 @@
+import { Testimonials } from "@/components/sections/testimonials";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,5 +6,10 @@ export const metadata: Metadata = {
 };
 
 export default function SignUpPage() {
-  return <div>SignUpPage</div>;
+  return (
+    <>
+      SignUpPage
+      <Testimonials />
+    </>
+  );
 }
