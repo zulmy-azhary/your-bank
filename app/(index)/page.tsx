@@ -4,7 +4,7 @@ import { Products } from "./_components/products";
 import { UseCases } from "./_components/use-cases";
 import { Features } from "./_components/features";
 import { FAQS } from "@/components/sections/faqs";
-import { Testimonials } from "./_components/testimonials";
+import { Testimonials } from "@/components/sections/testimonials";
 import { CallToAction } from "@/components/sections/cta";
 
 export const metadata: Metadata = {
