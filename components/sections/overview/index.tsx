@@ -2,15 +2,17 @@ import { Section } from "@/components/ui/section";
 import { cn } from "@/lib/utils";
 import Image, { type StaticImageData } from "next/image";
 import fourthAbstract from "@/public/assets/abstract-4.svg";
+import bgPattern from "@/public/assets/pattern-background.png";
 
 type OverviewProps = React.ComponentProps<"div"> & {
   imageUrl: StaticImageData;
   subHeader?: string;
   contentHeader: React.ReactNode;
   description: string;
+  havePattern?: boolean;
 };
 
-const OverviewContent: React.FC<Omit<OverviewProps, "imageUrl">> = (props) => {
+const OverviewContent: React.FC<Omit<OverviewProps, "imageUrl" | "havePattern">> = (props) => {
   const { subHeader, contentHeader, description, className, ...rest } = props;
 
   return (
@@ -32,24 +34,32 @@ const OverviewContent: React.FC<Omit<OverviewProps, "imageUrl">> = (props) => {
   );
 };
 
-const OverviewImage: React.FC<Pick<OverviewProps, "imageUrl">> = (props) => {
-  const { imageUrl } = props;
+const OverviewImage: React.FC<Pick<OverviewProps, "imageUrl" | "havePattern">> = (props) => {
+  const { imageUrl, havePattern } = props;
 
   return (
-    <div className="order-first lg:row-start-1 lg:col-start-5 xl:col-start-6 2xl:col-start-5 lg:col-span-full z-10">
+    <div className="order-first lg:row-start-1 lg:col-start-5 xl:col-start-6 2xl:col-start-5 lg:col-span-full z-10 relative">
       <Image
         src={imageUrl}
         alt="Billboard Image"
-        className="w-full rounded-2xl object-contain"
+        className="w-full rounded-2xl object-contain grayscale"
         placeholder="blur"
         priority
       />
+      {havePattern ? (
+        <Image
+          src={bgPattern}
+          alt="Billboard Image"
+          className="w-full rounded-2xl object-contain grayscale absolute inset-0 mix-blend-overlay"
+          priority
+        />
+      ) : null}
     </div>
   );
 };
 
 export const Overview: React.FC<OverviewProps> = (props) => {
-  const { imageUrl, ...rest } = props;
+  const { imageUrl, havePattern, ...rest } = props;
 
   return (
     <Section className="relative basis-1/2 bg-shades-grey-11 rounded-[20px] p-3.5 lg:p-10 2xl:p-[50px] grid lg:grid-rows-1 lg:grid-cols-12">
@@ -61,7 +71,7 @@ export const Overview: React.FC<OverviewProps> = (props) => {
         priority
       />
       <OverviewContent {...rest} />
-      <OverviewImage imageUrl={imageUrl} />
+      <OverviewImage imageUrl={imageUrl} havePattern={havePattern} />
     </Section>
   );
 };

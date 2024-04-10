@@ -5,6 +5,7 @@ export const Overview: React.FC = () => {
   return (
     <OverviewSection
       imageUrl={securityBillboard}
+      havePattern
       contentHeader={
         <h1 className="font-medium text-[28px] lg:text-3xl xl:text-5xl 2xl:text-[58px] !leading-[1.3]">
           Your Security is Our <span className="text-shades-green-60">Top Priority</span>
