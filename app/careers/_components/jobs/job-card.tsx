@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { IoBriefcase } from "react-icons/io5";
 
@@ -16,16 +17,8 @@ const JobHeader: React.FC<Pick<JobCardProps, "position" | "location" | "departme
     <div className="space-y-1.5 lg:space-y-2.5 2xl:space-y-3.5">
       <h3 className="font-semibold text-xl lg:text-2xl 2xl:text-3xl">{position}</h3>
       <div className="flex flex-wrap gap-1.5 lg:gap-2 2xl:gap-2.5">
-        <div className="px-2.5 lg:px-3.5 2xl:px-4 py-1.5 2xl:py-2 rounded-full bg-shades-grey-10 border border-shades-grey-15">
-          <p className="font-light text-sm lg:text-base 2xl:text-lg text-shades-grey-70">
-            Location: {location}
-          </p>
-        </div>
-        <div className="px-2.5 lg:px-3.5 2xl:px-4 py-1.5 2xl:py-2 rounded-full bg-shades-grey-10 border border-shades-grey-15">
-          <p className="font-light text-sm lg:text-base 2xl:text-lg text-shades-grey-70">
-            Department: {department}
-          </p>
-        </div>
+        <Badge>Location: {location}</Badge>
+        <Badge>Department: {department}</Badge>
       </div>
     </div>
   );
