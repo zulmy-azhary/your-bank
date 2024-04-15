@@ -49,7 +49,7 @@ const OverviewImage: React.FC<Pick<OverviewProps, "imageUrl" | "havePattern">> =
       {havePattern ? (
         <Image
           src={bgPattern}
-          alt="Billboard Image"
+          alt="Pattern Image"
           className="w-full rounded-2xl object-contain grayscale absolute inset-0 mix-blend-overlay"
           priority
         />
