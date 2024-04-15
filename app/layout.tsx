@@ -6,6 +6,7 @@ import { ToggleProvider } from "@/context/toggle";
 import "./globals.css";
 import Image from "next/image";
 import { Footer } from "@/components/sections/footer";
+import { Toaster } from "sonner";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -45,6 +46,21 @@ export default function RootLayout({
         <ToggleProvider>
           <div className="px-4 lg:px-20 2xl:px-[162px] container mt-12 fixed z-[9999] top-0 lg:static">
             <Navbar />
+            <Toaster
+              position="bottom-center"
+              // richColors
+              theme="dark"
+              toastOptions={{
+                // unstyled: true,
+                classNames: {
+                  toast: "bg-shades-grey-15 border-shades-grey-20",
+                  error: "text-red-400",
+                  success: "text-shades-green-60",
+                  warning: "text-yellow-400",
+                  info: "text-blue-400",
+                },
+              }}
+            />
           </div>
         </ToggleProvider>
         <main className="w-full overflow-x-hidden flex flex-col px-4 pb-8 lg:px-20 2xl:px-[162px] xl:container lg:py-10 gap-y-20 lg:gap-y-28 2xl:gap-y-32">
