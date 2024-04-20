@@ -71,7 +71,7 @@ export const Reveal: React.FC<RevealProps> = (props) => {
           initial="hidden"
           animate={sliderControls}
           transition={{ duration: 0.7, ease: "easeIn" }}
-          className={cn("absolute inset-0 z-10", sliderClassName)}
+          className={cn("absolute inset-0 z-10 bg-shades-green-60", sliderClassName)}
         />
       ) : null}
     </div>
