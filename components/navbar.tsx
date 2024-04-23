@@ -5,7 +5,6 @@ import { NavControl } from "@/components/nav-control";
 import { Reveal } from "@/components/utils/reveal";
 import { Appear } from "@/components/utils/appear";
 import Link from "next/link";
-import { Appear } from "./utils/appear";
 
 export const Navbar: React.FC = () => {
   return (
