@@ -21,7 +21,7 @@ export const NavControl: React.FC<NavControlProps> = (props) => {
 
   return (
     <>
-      <Reveal from="right" wrapperClassName="z-[99999]" className="flex">
+      <Reveal wrapperClassName="z-[99999]" className="flex">
         <Button className="lg:hidden" onClick={() => setOpen((prev) => !prev)}>
           <Hamburger isOpen={isOpen} />
         </Button>
