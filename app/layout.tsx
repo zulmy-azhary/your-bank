@@ -7,6 +7,7 @@ import "./globals.css";
 import Image from "next/image";
 import { Footer } from "@/components/sections/footer";
 import { Toaster } from "sonner";
+import { Appear } from "@/components/utils/appear";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -34,15 +35,17 @@ export default function RootLayout({
           "bg-shades-grey-10 mx-auto mt-40 lg:mt-0 overflow-x-hidden flex flex-col justify-between items-center min-h-screen text-white gap-y-[50px] lg:gap-y-[30px] 2xl:gap-y-[53px]"
         )}
       >
-        <Image
-          src="/assets/abstract-2.svg"
-          alt="Abstract Image 2"
-          width={50}
-          height={50}
-          sizes="auto"
-          priority
-          className="absolute -z-10 -top-7 -left-7 lg:-top-12 lg:-left-12 w-[25rem] lg:w-[28rem] 2xl:w-[35rem]"
-        />
+        <Appear className="absolute -z-10 -top-7 -left-7 lg:-top-12 lg:-left-12">
+          <Image
+            src="/assets/abstract-2.svg"
+            alt="Abstract Image 2"
+            width={50}
+            height={50}
+            sizes="auto"
+            priority
+            className="w-[25rem] lg:w-[28rem] 2xl:w-[35rem]"
+          />
+        </Appear>
         <ToggleProvider>
           <div className="px-4 lg:px-20 2xl:px-[162px] container mt-12 fixed z-[9999] top-0 lg:static">
             <Navbar />
