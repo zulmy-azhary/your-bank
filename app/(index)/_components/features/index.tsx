@@ -34,7 +34,7 @@ const FeaturesContent: React.FC = () => {
           const delay = (idx + 1) * 0.25;
 
           return (
-            <Reveal key={title} delay={delay}>
+            <Reveal key={title} delay={delay} className="h-full">
               <FeaturesCard idx={delay} title={title} description={description} />
             </Reveal>
           );

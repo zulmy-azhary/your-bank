@@ -12,7 +12,7 @@ export const FeaturesCard: React.FC<FeaturesCardProps> = (props) => {
   const { idx, title, description } = props;
 
   return (
-    <div className="space-y-5 lg:space-y-6 2xl:space-y-[30px] rounded-[10px] lg:rounded-[20px] bg-shades-grey-11 border border-shades-grey-15 p-[30px] lg:p-10 2xl:p-[50px]">
+    <div className="h-full space-y-5 lg:space-y-6 2xl:space-y-[30px] rounded-[10px] lg:rounded-[20px] bg-shades-grey-11 border border-shades-grey-15 p-[30px] lg:p-10 2xl:p-[50px]">
       <div className="flex justify-between items-center">
         <Reveal delay={idx + 0.05}>
           <h5 className="text-lg 2xl:text-[22px]">{title}</h5>
