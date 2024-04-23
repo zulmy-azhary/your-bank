@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { HiMiniArrowLeft, HiMiniArrowRight } from "react-icons/hi2";
 import { TestimonialCard } from "./testimonials-card";
 import useBreakpoint from "@/hooks/breakpoint";
+import { Reveal } from "@/components/utils/reveal";
 
 export const TestimonialsCarousel: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -85,15 +86,17 @@ export const TestimonialsCarousel: React.FC = () => {
 
   return (
     <div className="flex flex-row flex-wrap xl:flex-nowrap justify-center items-center gap-x-5 gap-y-[30px] xl:gap-x-10 2xl:gap-x-[50px] relative overflow-x-hidden">
-      <Button
-        variant="secondary"
-        className="p-3 2xl:p-3.5 justify-self-end xl:justify-self-start z-10"
-        type="button"
-        onClick={scrollPrev}
-        disabled={!canScrollPrev}
-      >
-        <HiMiniArrowLeft className="size-5 xl:size-6" />
-      </Button>
+      <Reveal delay={0.5} from="left" wrapperClassName="justify-self-end xl:justify-self-start z-10 overflow-visible">
+        <Button
+          variant="secondary"
+          className="p-3 2xl:p-3.5"
+          type="button"
+          onClick={scrollPrev}
+          disabled={!canScrollPrev}
+        >
+          <HiMiniArrowLeft className="size-5 xl:size-6" />
+        </Button>
+      </Reveal>
       <div className="order-first xl:order-none overflow-x-hidden">
         <motion.ul
           ref={containerRef}
@@ -114,20 +117,24 @@ export const TestimonialsCarousel: React.FC = () => {
                 duration: 0.5,
               }}
             >
-              <TestimonialCard user={user} comment={comment} />
+              <Reveal wrapperClassName="h-full" className="h-full">
+                <TestimonialCard user={user} comment={comment} />
+              </Reveal>
             </motion.li>
           ))}
         </motion.ul>
       </div>
-      <Button
-        variant="secondary"
-        className="p-3 2xl:p-3.5 justify-self-start xl:justify-self-end z-10"
-        type="button"
-        onClick={scrollNext}
-        disabled={!canScrollNext}
-      >
-        <HiMiniArrowRight className="size-5 xl:size-6" />
-      </Button>
+      <Reveal delay={0.5} from="right" wrapperClassName="justify-self-end xl:justify-self-start z-10 overflow-visible">
+        <Button
+          variant="secondary"
+          className="p-3 2xl:p-3.5 justify-self-start xl:justify-self-end z-10"
+          type="button"
+          onClick={scrollNext}
+          disabled={!canScrollNext}
+        >
+          <HiMiniArrowRight className="size-5 xl:size-6" />
+        </Button>
+      </Reveal>
       <GradientEdges />
     </div>
   );
