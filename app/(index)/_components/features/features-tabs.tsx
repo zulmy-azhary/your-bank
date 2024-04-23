@@ -1,6 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Appear } from "@/components/utils/appear";
+import { Reveal } from "@/components/utils/reveal";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -10,22 +12,23 @@ export const FeaturesTabs: React.FC = () => {
   const [selected, setSelected] = useState<(typeof tabs)[number]>(tabs[0]);
 
   return (
-    <div className=" overflow-x-auto modified-scrollbar h-fit rounded-[10px] 2xl:rounded-xl bg-shades-grey-11 p-5 lg:p-10 2xl:p-[50px] flex flex-nowrap lg:flex-col gap-x-5 gap-y-6">
+    <Appear className="overflow-x-auto modified-scrollbar h-fit rounded-[10px] 2xl:rounded-xl bg-shades-grey-11 p-5 lg:p-10 2xl:p-[50px] flex flex-nowrap lg:flex-col gap-x-5 gap-y-6">
       {tabs.map((tab) => (
-        <Button
-          key={tab}
-          onClick={() => setSelected(tab)}
-          variant="secondary"
-          className={cn(
-            "lg:w-full md:grow shrink-0",
-            selected === tab
-              ? "text-shades-green-60 bg-shades-grey-10 hover:bg-shades-grey-10"
-              : null
-          )}
-        >
-          {tab}
-        </Button>
+        <Reveal key={tab} wrapperClassName="lg:w-full md:grow shrink-0">
+          <Button
+            onClick={() => setSelected(tab)}
+            variant="secondary"
+            className={cn(
+              "lg:w-full",
+              selected === tab
+                ? "text-shades-green-60 bg-shades-grey-10 hover:bg-shades-grey-10"
+                : null
+            )}
+          >
+            {tab}
+          </Button>
+        </Reveal>
       ))}
-    </div>
+    </Appear>
   );
 };
