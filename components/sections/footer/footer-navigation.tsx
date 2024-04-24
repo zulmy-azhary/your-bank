@@ -15,7 +15,9 @@ export const FooterNavigation: React.FC = () => {
           <Reveal key={route.href} delay={(idx + 1) * 0.1}>
             <Link
               href={route.href}
-              className={cn("text-sm lg:text-base 2xl:text-lg text-shades-white-90 font-light")}
+              className={cn(
+                "text-sm lg:text-base 2xl:text-lg text-shades-white-90 font-light transition-colors hover:text-shades-green-60"
+              )}
             >
               {route.label}
             </Link>
