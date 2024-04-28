@@ -18,7 +18,8 @@ const OverviewContent: React.FC<Omit<OverviewProps, "imageUrl" | "havePattern">>
   const { subHeader, contentHeader, description, className } = props;
 
   return (
-    <Reveal from="left"
+    <Reveal
+      from="left"
       wrapperClassName={"lg:row-start-1 lg:col-start-1 lg:col-end-8 overflow-visible z-10"}
       className={cn(
         "h-fit flex flex-col bg-shades-grey-10 p-6 lg:p-[60px] 2xl:p-20 gap-y-3.5 lg:gap-y-5 2xl:gap-y-[23px] rounded-[20px] lg:rounded-se-none lg:rounded-ee-[60px] 2xl:rounded-ee-[80px] text-center lg:text-start -mt-10 lg:mt-0",
@@ -31,7 +32,7 @@ const OverviewContent: React.FC<Omit<OverviewProps, "imageUrl" | "havePattern">>
             <h5 className="text-sm lg:text-lg 2xl:text-xl">{subHeader}</h5>
           </Reveal>
         ) : null}
-        <Reveal from="left" delay={0.4}>
+        <Reveal from="left" delay={0.4} wrapperClassName="w-full">
           {contentHeader}
         </Reveal>
       </div>
