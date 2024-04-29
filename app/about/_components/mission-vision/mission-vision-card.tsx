@@ -1,5 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/utils/reveal";
+import { Appear } from "@/components/utils/appear";
 
 type MissionVisionCardProps = {
   title: string;
@@ -10,7 +12,7 @@ export const MissionVisionCard: React.FC<MissionVisionCardProps> = (props) => {
   const { title, image } = props;
 
   return (
-    <div
+    <Appear
       className={cn(
         "relative shrink-0 lg:basis-2/5 xl:basis-5/12 bg-shades-grey-11 p-5 xl:p-[60px] !pb-0 rounded-t-[50px] overflow-hidden",
         "before:absolute before:-inset-8 xl:before:inset-2",
@@ -18,13 +20,15 @@ export const MissionVisionCard: React.FC<MissionVisionCardProps> = (props) => {
         "after:absolute after:inset-x-0 lg:after:inset-x-auto lg:after:w-px after:bg-shades-green-60 after:bottom-0 lg:group-odd:after:right-0 lg:group-even:after:left-0 after:h-px lg:after:h-auto lg:after:inset-y-1/3"
       )}
     >
-      <Image
-        src={image}
-        alt={`${title} Image`}
-        placeholder="blur"
-        priority
-        className="rounded-t-[50px] grayscale h-[309px] lg:h-80 xl:h-[440px] 2xl:h-[561px] object-cover"
-      />
-    </div>
+      <Reveal delay={0.4}>
+        <Image
+          src={image}
+          alt={`${title} Image`}
+          placeholder="blur"
+          priority
+          className="rounded-t-[50px] grayscale h-[309px] lg:h-80 xl:h-[440px] 2xl:h-[561px] object-cover"
+        />
+      </Reveal>
+    </Appear>
   );
 };

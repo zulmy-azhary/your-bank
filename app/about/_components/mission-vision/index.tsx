@@ -2,18 +2,23 @@ import { Section } from "@/components/ui/section";
 import { MissionVisionCard } from "./mission-vision-card";
 import { missionVision } from "./data";
 import { MissionVisionStatement } from "./mission-vision-statement";
+import { Reveal } from "@/components/utils/reveal";
 
 const MissionVisionTitle: React.FC = () => {
   return (
     <div className="space-y-2.5 text-center md:text-start md:basis-7/12">
-      <h2 className="text-[28px] lg:text-[38px] 2xl:text-5xl font-medium text-shades-green-60">
-        Mission & Vision
-      </h2>
-      <p className="text-shades-grey-70 text-sm lg:text-base 2xl:text-lg leading-normal font-light">
-        We envision being a leading force in the industry, driven by innovation, integrity, and
-        inclusivity, creating a brighter financial future for individuals and businesses while
-        maintaining a strong commitment to customer satisfaction and community development
-      </p>
+      <Reveal wrapperClassName="w-full">
+        <h2 className="text-[28px] lg:text-[38px] 2xl:text-5xl font-medium text-shades-green-60">
+          Mission & Vision
+        </h2>
+      </Reveal>
+      <Reveal delay={0.35}>
+        <p className="text-shades-grey-70 text-sm lg:text-base 2xl:text-lg leading-normal font-light">
+          We envision being a leading force in the industry, driven by innovation, integrity, and
+          inclusivity, creating a brighter financial future for individuals and businesses while
+          maintaining a strong commitment to customer satisfaction and community development
+        </p>
+      </Reveal>
     </div>
   );
 };
